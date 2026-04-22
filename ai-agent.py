@@ -2,13 +2,25 @@
 # It asks several "worker" models for answers, then uses a "judge" model to combine them into one final response.
 # This helps get better, more balanced answers by comparing different AI perspectives.
 
+import os
+
+from dotenv import load_dotenv
 from openai import OpenAI
+
+load_dotenv()
+
+api_key = os.getenv("OPENROUTER_API_KEY")
+
+if not api_key:
+    raise ValueError(
+        "Missing OPENROUTER_API_KEY. Add it to your environment or a .env file."
+    )
 
 # 1. Initialize OpenRouter client
 # OpenRouter is a service that lets you access many different AI models through one API.
 client = OpenAI(
     base_url="https://openrouter.ai/api/v1",
-    api_key="your-openrouter-key-here", 
+    api_key=api_key,
 )
 
 # Define the models you want to use

@@ -25,17 +25,21 @@ An application programming interface (API) key is like a secret password that al
 - Navigate to the "Keys" or "API Keys" section in your account settings and generate a new key.
 - Save this key somewhere safe. Do not share it with the public!
 
-### 3. Add your Key to the Code
-You can use any text editor (like Notepad, TextEdit, or a code editor like VS Code) to open the file `ai-agent.py`.
-- Look near the top of the file to find this line: `api_key="your-openrouter-key-here",`
-- Replace the text `your-openrouter-key-here` with your actual OpenRouter API key. Make sure to keep the quotation marks untouched on both sides!
+### 3. Add your Key to a `.env` File
+Do not put secrets directly into the Python file. Instead, create a file named `.env` in the project folder and add your key there:
+
+```env
+OPENROUTER_API_KEY=your-openrouter-key-here
+```
+
+You can copy the provided `.env.example` file and then replace `your-openrouter-key-here` with your real OpenRouter API key.
 
 ## Setting Up and Running the Code
 
 Now it is time to use the Terminal (or Command Prompt / PowerShell on Windows) on your computer to run the code. Open your Terminal and follow these steps:
 
 ### Step 1: Install required "packages"
-Packages are pre-made pieces of code that our script relies on. This project uses the `openai` package as a bridge to communicate with OpenRouter. 
+Packages are pre-made pieces of code that our script relies on. This project uses the `openai` package as a bridge to communicate with OpenRouter and `python-dotenv` to load your local `.env` file.
 Make sure your terminal is opened to the folder containing this code, then type this command and press Enter:
 ```shell
 pip install -r requirement.txt
