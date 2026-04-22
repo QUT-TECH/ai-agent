@@ -45,15 +45,15 @@ client = OpenAI(
 # These are the "worker" models - each one will give an answer to your question.
 # We're using a mix of different models from various providers for diverse perspectives.
 worker_models = [
-    "openrouter/elephant-alpha",  # A creative and helpful AI model
-    "minimax/minimax-m2.5:free",  # A fast, free model from Minimax
-    "google/gemma-4-31b-it:free"  # Google's Gemma model, good at reasoning
+    "inclusionai/ling-2.6-flash:free",  # A creative and helpful AI model
+    "qwen/qwen3-next-80b-a3b-instruct:free",  # A fast, free model from Minimax
+    "google/gemma-4-26b-a4b-it:free"  # Google's Gemma model, good at reasoning
 ]
 
 # The model that will synthesize the final answer
 # This is the "judge" model - it reviews all the worker answers and creates the best final response.
 # It needs to be good at analysis and synthesis to combine multiple viewpoints effectively.
-judge_model = "arcee-ai/trinity-large-preview:free" 
+judge_model = "minimax/minimax-m2.5:free"
 
 print("Multi-Model Chatbot started! (Type 'quit' to stop)")
 
@@ -132,9 +132,6 @@ while True:
     
     # Print the final answer with nice formatting
     # Use separators to make it clear this is the final result
-    print("-" * 30)
-    print(f"AI FINAL ANSWER:\n{final_answer}")
-    print("-" * 30)
     print("-" * 30)
     print(f"AI FINAL ANSWER:\n{final_answer}")
     print("-" * 30)
